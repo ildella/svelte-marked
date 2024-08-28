@@ -1,4 +1,4 @@
-export { Lexer, Slugger } from 'marked'
+// export { Lexer, Slugger } from 'marked'
 
 import {
   Heading,
