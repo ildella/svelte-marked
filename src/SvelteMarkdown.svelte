@@ -12,11 +12,10 @@
   export let options = {}
   export let isInline = false
 
-  const dispatch = createEventDispatcher();
+  const dispatch = createEventDispatcher()
 
-  let tokens;
-  // let lexer;
-  let mounted;
+  let tokens
+  let mounted
 
   $: preprocessed = Array.isArray(source)
   $: slugger = source ? new Slugger : undefined
@@ -24,7 +23,6 @@
   $: if (preprocessed) {
     tokens = source
   } else {
-    // lexer = new Lexer(combinedOptions)
     const lexer = new marked.Lexer(combinedOptions)
 
     tokens = isInline ? lexer.inlineTokens(source) : lexer.lex(source)
@@ -43,7 +41,7 @@
 
   onMount(() => {
     mounted = true
-  });
+  })
 </script>
 
 <Parser {tokens} renderers={combinedRenderers} />
