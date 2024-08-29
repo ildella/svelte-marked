@@ -14,14 +14,15 @@ const tokenizer = {
   },
 }
 
-test('default parse', () => {
+test('inline $', () => {
   const parsed = marked.parse('$ latex code $\n\n` other code `')
   expect(parsed).toEqual(`<p>$ latex code $</p>
 <p><code>other code</code></p>
 `)
 })
 
-test('parse with custom latex tokenizer', () => {
+
+test('inline $ with custom tokenizer', () => {
   marked.use({tokenizer})
   const parsed = marked.parse('$ latex code $\n\n` other code `')
   expect(parsed).toEqual(`<p><code>latex code</code></p>
@@ -29,7 +30,7 @@ test('parse with custom latex tokenizer', () => {
 `)
 })
 
-test('parse $$ blocks latex notation', () => {
+test('block $$', () => {
   const parsed = marked.parse(`
     $$
     \nabla \times (\nabla f) = 0
@@ -38,11 +39,26 @@ test('parse $$ blocks latex notation', () => {
   expect(parsed).toEqual('<pre><code>$$\n</code></pre>\n<p>abla \times (\nabla f) = 0\n    $$</p>\n')
 })
 
-test('parse \( inline latex notation', () => {
+test('block $$ with custom tokenizer' , () => {
+  marked.use({tokenizer})
+  const parsed = marked.parse(`
+    $$
+    \nabla \times (\nabla f) = 0
+    $$`
+  )
+  expect(parsed).toEqual('???')
+})
+
+test('inline \(', () => {
   const parsed = marked.parse(`where \( \nabla \) is the del operator.`)
   expect(parsed).toEqual(`<p>where ( 
 abla ) is the del operator.</p>
 `)
+})
+
+test('inline \( with custom tokenizer', () => {
+  const parsed = marked.parse(`where \( \nabla \) is the del operator.`)
+  expect(parsed).toEqual(`???`)
 })
 
 test('parse \[ block latex notation', () => {
@@ -67,3 +83,5 @@ abla f) = 0
         ]</p>
 `)
 })
+
+
