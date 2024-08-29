@@ -4,7 +4,7 @@
   "version": "0.5.0",
   "packageManager": "yarn@4.4.0",
   "engines": {
-    "node": ">=20"
+    "node": ">=18"
   },
   "main": "dist/sveltemarkdown.js",
   "module": "dist/sveltemarkdown.es.js",
