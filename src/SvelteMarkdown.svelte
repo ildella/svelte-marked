@@ -8,6 +8,7 @@
   import { key } from './context'
 
   export let source = []
+  export let tokenizers = []
   export let renderers = {}
   export let options = {}
   export let isInline = false
@@ -23,11 +24,37 @@
   $: if (preprocessed) {
     tokens = source
   } else {
+    // console.log('extra tokenizers:', tokenizers)
+    tokenizers.forEach(tokenizer => marked.use({tokenizer}))
+    // const tokenizer = {
+    //   codespan (src) {
+    //     console.log({src})
+    //     const match = src.match(/^\$+([^$\n]+?)\$+/)
+    //     // const match = src.match(/\$(.+?)\$/g)
+    //     console.log({match})
+    //     if (match) {
+    //       return {
+    //         type: 'codespan',
+    //         raw: match[0],
+    //         text: match[1].trim(),
+    //       }
+    //     }
+    //     // return false to use original codespan tokenizer
+    //     return false
+    //   },
+    // }
+    // marked.use({tokenizer})
+
     const lexer = new marked.Lexer(combinedOptions)
 
-    tokens = isInline ? lexer.inlineTokens(source) : lexer.lex(source)
-    const sample = tokens[21]
-    console.log({source}, sample)
+    // const cleaned = source.replaceAll('\[', '$$').replaceAll('\]', '$$')
+    const cleaned = source
+    tokens = isInline ? lexer.inlineTokens(cleaned) : lexer.lex(cleaned)
+    // console.log({source, cleaned, isInline})
+    // console.log({cleaned})
+    // console.log({tokens})
+    const sample = tokens[32]
+    console.log(sample)
     dispatch('parsed', { tokens })
   }
 
