@@ -1,7 +1,7 @@
 {
   "name": "svelte-marked",
   "description": "A markdown renderer for Svelte.",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "packageManager": "yarn@4.4.0",
   "engines": {
     "node": ">=18"
@@ -25,7 +25,10 @@
   ],
   "license": "MIT",
   "author": "Pablo Berganza <pablo@berganza.dev>",
-  "repository": "github:ildella/svelte-marked",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ildella/svelte-marked.git"
+  },
   "homepage": "https://github.com/ildella/svelte-marked",
   "scripts": {
     "build": "vite build",
