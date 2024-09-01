@@ -3,9 +3,15 @@
 
 name: Publish to NPM
 
+# on:
+#   release:
+#     types: [created]
+
 on:
-  release:
-    types: [created]
+  push:
+    # branches: [master] 
+    tags:
+      - '*'
 
 jobs:
   build:
@@ -22,26 +28,14 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 22
-          registry-url: https://registry.npmjs.org/
-      - run: yarn
-      - run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
-
-  # publish-gpr:
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v1
-  #       with:
-  #         node-version: 12
-  #         registry-url: https://npm.pkg.github.com/
-  #     - run: yarn
-  #     - run: yarn publish
-  #       env:
-  #         NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    - uses: actions/checkout@v4
+    - run: corepack enable
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 22
+        cache: 'yarn'
+        registry-url: https://registry.npmjs.org/
+    - run: yarn workspaces focus --all --production
+    - run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
