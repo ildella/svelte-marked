@@ -1,7 +1,7 @@
 {
   "name": "svelte-marked",
   "description": "A markdown renderer for Svelte.",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "packageManager": "yarn@4.4.0",
   "engines": {
     "node": ">=18"
