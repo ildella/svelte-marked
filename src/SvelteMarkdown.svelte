@@ -24,20 +24,16 @@
     tokens = source
   } else {
     const lexer = new marked.Lexer(combinedOptions)
-
     tokens = isInline ? lexer.inlineTokens(source) : lexer.lex(source)
-    const sample = tokens[21]
-    console.log({source}, sample)
     dispatch('parsed', { tokens })
   }
-
   $: combinedRenderers = { ...defaultRenderers, ...renderers }
+  $: mounted && !preprocessed && dispatch('parsed', { tokens })
 
   setContext(key, {
     slug: (val) => slugger ? slugger.slug(val) : '',
     getOptions: () => combinedOptions
   })
-  $: mounted && !preprocessed && dispatch('parsed', { tokens })
 
   onMount(() => {
     mounted = true
