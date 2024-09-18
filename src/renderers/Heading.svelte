@@ -11,6 +11,7 @@
   $: id = options.headerIds
     ? options.headerPrefix + slug(text)
     : undefined
+
 </script>
 
 {#if depth === 1}
