@@ -6,3 +6,5 @@
 dist/
 .log/
 .yarn/
+
+vite.config.js.timestamp*
