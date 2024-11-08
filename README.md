@@ -5,9 +5,9 @@
 [![npm](https://img.shields.io/npm/dw/svelte-marked)](https://www.npmjs.com/package/svelte-marked)
 ![NPM](https://img.shields.io/npm/l/svelte-marked)
 
-A markdown parser that renders into Svelte Components. Inspired by [ReactMarkdown](https://github.com/remarkjs/react-markdown). Forked from [svelte-markdown](https://github.com/pablo-abc/svelte-markdown/pulls) cause it was not merging PRs or upadting the project since December 2023. 
+A markdown parser that renders into Svelte Components. Forked from [svelte-markdown](https://github.com/pablo-abc/svelte-markdown/pulls) cause it was not merging PRs or upadting the project since December 2023. 
 
-This is the same code as `svelte-markdown` with up-to-date dependencies and removed deprecated dependencies.
+This is the same code as `svelte-markdown` with up-to-date dependencies and removed deprecated dependencies. It keeps using [marked](https://github.com/markedjs/marked/).
 
 ## Installation
 
@@ -271,6 +271,6 @@ As of now the only external dependency of this project is `marked`.
 
 ## Related
 
-- [ReactMarkdown](https://github.com/remarkjs/react-markdown) - React library to render markdown using React components. Inspiration for this library.
 - [Svelte](https://svelte.dev) - JavaScript front-end framework.
 - [Marked](https://marked.js.org/) - Markdown parser
+- [ReactMarkdown](https://github.com/remarkjs/react-markdown) - React library to render markdown using React components. Inspiration for this library.
