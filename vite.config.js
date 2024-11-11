@@ -3,6 +3,7 @@ import { svelte } from '@sveltejs/vite-plugin-svelte'
 // import analyze from 'rollup-plugin-analyzer'
 // import { terser } from 'rollup-plugin-terser'
 // import filesize from 'rollup-plugin-filesize'
+
 import pkg from './package.json'
 
 // const production = !process.argv.includes('--watch')
@@ -14,6 +15,7 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
+    setupFiles: ['./vitest-setup.js'],
   },
   build: {
     rollupOptions: {
