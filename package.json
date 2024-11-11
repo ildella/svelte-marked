@@ -1,8 +1,8 @@
 {
   "name": "svelte-marked",
   "description": "A markdown renderer for Svelte.",
-  "version": "0.5.7",
-  "packageManager": "yarn@4.4.0",
+  "version": "0.6.0",
+  "packageManager": "yarn@4.5.1",
   "engines": {
     "node": ">=18"
   },
@@ -33,30 +33,35 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite build --watch",
+    "lint": "eslint . --max-warnings 2",
     "test": "vitest run",
     "test:watch": "vitest watch"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "3.1.2",
-    "@testing-library/jest-dom": "5.17.0",
-    "@testing-library/svelte": "5.2.1",
-    "eslint": "9.10.0",
-    "eslint-plugin-svelte": "2.44.0",
-    "jsdom": "25.0.0",
+    "@eslint/js": "9.14.0",
+    "@stylistic/eslint-plugin-js": "2.10.1",
+    "@sveltejs/vite-plugin-svelte": "4.0.0",
+    "@testing-library/jest-dom": "6.6.3",
+    "@testing-library/svelte": "5.2.4",
+    "eslint": "9.14.0",
+    "eslint-plugin-svelte": "2.46.0",
+    "eslint-plugin-vitest": "0.5.4",
+    "globals": "15.12.0",
+    "jsdom": "25.0.1",
     "prettier": "3.3.3",
     "rollup-plugin-analyzer": "4.0.0",
     "rollup-plugin-filesize": "10.0.0",
     "rollup-plugin-terser": "7.0.2",
-    "sirv-cli": "2.0.2",
-    "svelte": "4.2.19",
-    "svelte-eslint-parser": "0.41.1",
-    "vite": "5.4.6",
-    "vitest": "2.1.1"
+    "sirv-cli": "3.0.0",
+    "svelte": "5.1.14",
+    "svelte-eslint-parser": "0.43.0",
+    "vite": "5.4.11",
+    "vitest": "2.1.4"
   },
   "dependencies": {
     "@types/marked": "6.0.0",
     "github-slugger": "2.0.0",
-    "marked": "14.1.2"
+    "marked": "15.0.0"
   },
   "peerDependencies": {
     "svelte": "^4.0.0"
