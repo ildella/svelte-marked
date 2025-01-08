@@ -281,6 +281,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@eslint/js@npm:9.17.0":
+  version: 9.17.0
+  resolution: "@eslint/js@npm:9.17.0"
+  checksum: 10c0/a0fda8657a01c60aa540f95397754267ba640ffb126e011b97fd65c322a94969d161beeaef57c1441c495da2f31167c34bd38209f7c146c7225072378c3a933d
+  languageName: node
+  linkType: hard
+
 "@eslint/object-schema@npm:^2.1.4":
   version: 2.1.4
   resolution: "@eslint/object-schema@npm:2.1.4"
@@ -4327,7 +4334,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "svelte-marked@workspace:."
   dependencies:
-    "@eslint/js": "npm:9.14.0"
+    "@eslint/js": "npm:9.17.0"
     "@stylistic/eslint-plugin-js": "npm:2.10.1"
     "@sveltejs/vite-plugin-svelte": "npm:4.0.0"
     "@testing-library/jest-dom": "npm:6.6.3"
@@ -4350,7 +4357,7 @@ __metadata:
     vite: "npm:5.4.11"
     vitest: "npm:2.1.4"
   peerDependencies:
-    svelte: ^4.0.0
+    svelte: ^5.0.0
   languageName: unknown
   linkType: soft
 
@@ -4493,12 +4500,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tough-cookie@npm:next":
-  version: 5.0.0-rc.4
-  resolution: "tough-cookie@npm:5.0.0-rc.4"
+"tough-cookie@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "tough-cookie@npm:5.0.0"
   dependencies:
     tldts: "npm:^6.1.32"
-  checksum: 10c0/4585891add6e9b58fd86a454d20cae8d07e90857c5e233784350008b6181b4358c9d90c73f456357e1b55ac21900110d86dbe193a353bf04c1454ad3c1075d43
+  checksum: 10c0/4a69c885bf6f45c5a64e60262af99e8c0d58a33bd3d0ce5da62121eeb9c00996d0128a72df8fc4614cbde59cc8b70aa3e21e4c3c98c2bbde137d7aba7fa00124
   languageName: node
   linkType: hard
 
