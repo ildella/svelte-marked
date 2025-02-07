@@ -1,5 +1,4 @@
 <script>
-    export let text; text;
-    export let raw; raw;
+    let { text, raw, children } = $props();
 </script>
-<slot />
+{@render children?.()}

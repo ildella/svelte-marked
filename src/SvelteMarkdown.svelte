@@ -1,4 +1,6 @@
 <script>
+  import { run } from 'svelte/legacy';
+
   import { setContext, createEventDispatcher, onMount } from 'svelte'
   import { marked } from 'marked'
   import Slugger from 'github-slugger'
@@ -7,28 +9,43 @@
   import { defaultOptions, defaultRenderers } from './markdown-parser'
   import { key } from './context'
 
-  export let source = []
-  export let renderers = {}
-  export let options = {}
-  export let isInline = false
+  /**
+   * @typedef {Object} Props
+   * @property {any} [source]
+   * @property {any} [renderers]
+   * @property {any} [options]
+   * @property {boolean} [isInline]
+   */
+
+  /** @type {Props} */
+  let {
+    source = [],
+    renderers = {},
+    options = {},
+    isInline = false
+  } = $props();
 
   const dispatch = createEventDispatcher()
 
-  let tokens
-  let mounted
+  let tokens = $state()
+  let mounted = $state()
 
-  $: preprocessed = Array.isArray(source)
-  $: slugger = source ? new Slugger : undefined
-  $: combinedOptions = { ...defaultOptions, ...options }
-  $: if (preprocessed) {
-    tokens = source
-  } else {
-    const lexer = new marked.Lexer(combinedOptions)
-    tokens = isInline ? lexer.inlineTokens(source) : lexer.lex(source)
-    dispatch('parsed', { tokens })
-  }
-  $: combinedRenderers = { ...defaultRenderers, ...renderers }
-  $: mounted && !preprocessed && dispatch('parsed', { tokens })
+  let preprocessed = $derived(Array.isArray(source))
+  let slugger = $derived(source ? new Slugger : undefined)
+  let combinedOptions = $derived({ ...defaultOptions, ...options })
+  run(() => {
+    if (preprocessed) {
+      tokens = source
+    } else {
+      const lexer = new marked.Lexer(combinedOptions)
+      tokens = isInline ? lexer.inlineTokens(source) : lexer.lex(source)
+      dispatch('parsed', { tokens })
+    }
+  });
+  let combinedRenderers = $derived({ ...defaultRenderers, ...renderers })
+  run(() => {
+    mounted && !preprocessed && dispatch('parsed', { tokens })
+  });
 
   setContext(key, {
     slug: (val) => slugger ? slugger.slug(val) : '',
