@@ -10,8 +10,7 @@ import pkg from './package.json'
 const removeDist = (p) => p.replace('dist/', '')
 
 export default defineConfig({
-  plugins: [svelte({ hot: !process.env.VITEST })],
-  // plugins: [svelte()],
+  plugins: [svelte()],
   test: {
     globals: true,
     environment: 'jsdom',

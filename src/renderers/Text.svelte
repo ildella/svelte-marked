@@ -1,4 +1,4 @@
 <script>
-    let { text, raw, children } = $props();
+    let { children } = $props();
 </script>
 {@render children?.()}
