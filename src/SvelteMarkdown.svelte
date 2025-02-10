@@ -1,5 +1,5 @@
 <script>
-  import { setContext, createEventDispatcher, onMount } from 'svelte'
+  import { setContext } from 'svelte'
   import { marked } from 'marked'
   import Slugger from 'github-slugger'
 

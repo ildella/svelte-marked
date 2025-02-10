@@ -7,7 +7,7 @@ export default [
   {languageOptions: { globals: globals.browser }},
   pluginJs.configs.recommended,
   {    
-    name: 'Frankie WebApp',
+    name: 'Svelte Marked',
     ignores: [
       'vite.config.js.*',
       'more.eslint.config.js',
