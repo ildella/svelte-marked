@@ -1,11 +1,8 @@
 {
   "name": "svelte-marked",
   "description": "A markdown renderer for Svelte.",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "packageManager": "yarn@4.6.0",
-  "engines": {
-    "node": ">=18"
-  },
   "main": "dist/sveltemarkdown.js",
   "module": "dist/sveltemarkdown.es.js",
   "jsnext:main": "dist/sveltemarkdown.es.js",
@@ -25,6 +22,10 @@
   ],
   "license": "MIT",
   "author": "Pablo Berganza <pablo@berganza.dev>",
+  "contributors": {
+    "name": "Daniele Dellafiore",
+    "url": "https://linktr.ee/ildella/"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ildella/svelte-marked.git"
